@@ -1,12 +1,14 @@
 
+// Selecting the DOM Elements using element selectors
 const weatherForm=document.querySelector(".weatherForm");
 const cityInput=document.querySelector(".cityinput");
 const card=document.querySelector(".card");
-const apiKey="10de084c54a89869e95335fec15c3592";
+const apiKey="10de084c54a89869e95335fec15c3592";//API key for OpenWeatherMap 
 
+// Adding an event listener for Form Submission
 weatherForm.addEventListener("submit",async event =>{
 
-    event.preventDefault();
+    event.preventDefault(); // Preventing Default Form Submission
 
     const city=cityInput.value;
 
@@ -27,8 +29,9 @@ weatherForm.addEventListener("submit",async event =>{
 
 });
 
+// Function to Fetch Data from API
 async function getWeatherData(city){
-    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;//API call for OpenWeatherMap
     const response=await fetch(apiUrl);
 
     
@@ -41,8 +44,8 @@ async function getWeatherData(city){
 
 }
 
+// Function to Display Weather Information
 function displayWeatherInfo(data){
-
    const {name : city,
            main:{temp,humidity},
            weather:[{description,id}]}=data;
@@ -78,9 +81,9 @@ function displayWeatherInfo(data){
 
 }
 
+// Function to Get Weather Emoji Based on Weather ID
 function getWeatherEmoji(weatherId){
-
-    switch(true){
+  switch(true){
         case (weatherId >= 200 && weatherId <300):
             return "⛈️";
         case (weatherId >= 300 && weatherId <400):
@@ -101,6 +104,7 @@ function getWeatherEmoji(weatherId){
 
 }
 
+// Function to Display Error Messages
 function displayError(message){
 
     const errorDisplay=document.createElement("p");
