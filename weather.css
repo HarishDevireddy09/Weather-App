@@ -7,6 +7,8 @@ body{
     align-items: center;
 }
 
+/* Styling for the weather form */
+
 .weatherForm{
     margin: 20px;
 }
@@ -36,6 +38,7 @@ button[type="Submit"]:hover{
     background-color:hsl(122,39%,40%);
 }
 
+/* styling for weather information card */
 .card{
     background: linear-gradient(180deg, hsl(210,100%,75%),hsl(40,100%,75%));
     padding: 50px;
@@ -59,6 +62,8 @@ p{
     font-size: 1.5rem;
     margin: 5px,0;
 }
+
+/* styling display elements */
 
 .cityDisplay, .tempDisplay{
     font-size: 3.5rem;
